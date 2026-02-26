@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student | Observer | Programmer</title>
+
+<style>
+
+/* ===== SCROLL PROGRESS BAR ===== */
+#progressBar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background:#2563eb;
+  z-index:9999;
+  transition:width 0.2s ease;
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+  color:#1e293b;
+  text-align:center;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== LIVE CLOCK ===== */
+.clock{
+  position:fixed;
+  top:15px;
+  right:20px;
+  font-size:0.9rem;
+  font-weight:600;
+  color:#1e3a8a;
+  z-index:10;
+}
+
+/* ===== FLOATING PARTICLES ===== */
+.particle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:rgba(37,99,235,0.2);
+  border-radius:50%;
+  animation:floatParticle 20s linear infinite;
+  z-index:0;
+}
+
+@keyframes floatParticle{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+/* ===== FLOATING BLOBS ===== */
+.blob{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:0.4;
+  z-index:0;
+  animation:float 18s infinite ease-in-out;
+}
+
+.blob1{
+  width:300px;
+  height:300px;
+  background:#93c5fd;
+  top:-100px;
+  left:-100px;
+}
+
+.blob2{
+  width:250px;
+  height:250px;
+  background:#bfdbfe;
+  bottom:-80px;
+  right:-80px;
+  animation-delay:5s;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(40px);}
+  100%{transform:translateY(0);}
+}
+
+/* ===== WATERMARK ===== */
+body::before{
+  content:"Way GenZ Than You Think";
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:5rem;
+  font-weight:800;
+  color:rgba(30,58,138,0.04);
+  white-space:nowrap;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  padding:80px 20px;
+  position:relative;
+  z-index:1;
+}
+
+/* ===== TITLE ===== */
+h1{
+  font-size:2.5rem;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+
+h1:hover{
+  transform:scale(1.03);
+}
+
+.tagline{
+  opacity:0.7;
+  margin-bottom:15px;
+}
+
+/* ===== TABS ===== */
+.tabs{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.tab-btn{
+  padding:10px 25px;
+  border-radius:50px;
+  border:1px solid rgba(255,255,255,0.5);
+  background:rgba(255,255,255,0.5);
+  backdrop-filter:blur(15px);
+  color:#1e3a8a;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.tab-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 10px 25px rgba(37,99,235,0.25);
+}
+
+.tab-btn.active{
+  background:#2563eb;
+  color:white;
+  box-shadow:0 10px 30px rgba(37,99,235,0.3);
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content{
+  display:none;
+  margin-top:30px;
+  padding:30px;
+  background:rgba(255,255,255,0.92);
+  border-radius:20px;
+  width:85%;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.5s ease;
+}
+
+.tab-content.active{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== QUOTE ===== */
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  opacity:0.8;
+  min-height:40px;
+}
+
+/* ===== LINK ===== */
+a{
+  text-decoration:none;
+  color:#2563eb;
+  font-weight:bold;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+footer{
+  margin-top:60px;
+  font-size:0.8rem;
+  opacity:0.6;
+}
+
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+<div class="clock" id="clock"></div>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div class="container">
+
+<h1>Student • Observer • Programmer</h1>
+<div class="tagline">Building. Learning. Growing.</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab('home', this)">Home</button>
+  <button class="tab-btn" onclick="openTab('about', this)">About</button>
+  <button class="tab-btn" onclick="openTab('projects', this)">Projects</button>
+  <button class="tab-btn" onclick="openTab('contact', this)">Contact</button>
+</div>
+
+<div id="home" class="tab-content active">
+  <h2>Welcome</h2>
+  <p>Just building my future silently.</p>
+  <div class="quote" id="typingQuote"></div>
+</div>
+
+<div id="about" class="tab-content">
+  <h2>About Me</h2>
+  <p>
+  Just a boy dreaming to be a doctor in future and does coding when free.  
+  A topper type student with many skills — and one great thing,  
+  my observing skill is extraordinary.
+  </p>
+</div>
+
+<div id="projects" class="tab-content">
+  <h2>Projects</h2>
+  <p>New projects will be updated after 20 March.</p>
+</div>
+
+<div id="contact" class="tab-content">
+  <h2>Connect With Me</h2>
+  <p>
+    Instagram:
+    <a href="https://www.instagram.com/_boulttt/" target="_blank">
+      @_boulttt
+    </a>
+  </p>
+</div>
+
+<footer>
+  © 2026 | Designed by Tukuna Meher
+</footer>
+
+</div>
+
+<script>
+
+/* TAB SWITCH */
+function openTab(tabId, element){
+  document.querySelectorAll(".tab-content").forEach(tab=>{
+    tab.classList.remove("active");
+  });
+
+  document.querySelectorAll(".tab-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  document.getElementById(tabId).classList.add("active");
+  element.classList.add("active");
+}
+
+/* TYPING ANIMATION */
+const text = `"Some Stories Don't Fall Apart. They Just Fade When The Reality Walks In."`;
+let i = 0;
+
+function typeWriter(){
+  if(i < text.length){
+    document.getElementById("typingQuote").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
+
+/* LIVE CLOCK */
+function updateClock(){
+  const now = new Date();
+  document.getElementById("clock").innerText =
+    now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+/* SCROLL PROGRESS */
+window.onscroll = function(){
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
+/* CREATE PARTICLES */
+for(let i=0;i<20;i++){
+  let p = document.createElement("div");
+  p.className="particle";
+  p.style.left = Math.random()*100+"vw";
+  p.style.animationDuration = (15 + Math.random()*10)+"s";
+  p.style.opacity = Math.random()*0.3;
+  document.body.appendChild(p);
+}
+
+/* ===== DEVTOOLS DETECTION ===== */
+let devtoolsOpen = false;
+
+function detectDevTools() {
+  const threshold = 160;
+  const widthDiff = window.outerWidth - window.innerWidth > threshold;
+  const heightDiff = window.outerHeight - window.innerHeight > threshold;
+
+  if ((widthDiff || heightDiff) && !devtoolsOpen) {
+    devtoolsOpen = true;
+
+    alert("Build Your Own, Stop Inspecting Others Work");
+
+    console.log(
+      "%cBuild Your Own, Stop Inspecting Others Work",
+      "color: #2563eb; font-size: 18px; font-weight: bold;"
+    );
+  }
+}
+
+setInterval(detectDevTools, 1000);
+
+</script>
+
+</body>
+</html>
