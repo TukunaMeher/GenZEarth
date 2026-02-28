@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student | Observer | Programmer</title>
+<title>GenZEarth | Tukuna Meher</title>
 
 <style>
 
@@ -39,6 +39,8 @@ body{
   font-weight:600;
   color:#1e3a8a;
   z-index:10;
+  cursor:pointer;
+  user-select:none;
 }
 
 /* ===== FLOATING PARTICLES ===== */
@@ -208,20 +210,113 @@ footer{
   opacity:0.6;
 }
 
+/* ===== HIDDEN SECRETS ===== */
+#secrets{
+  display:none;
+  padding:20px;
+  margin:20px auto;
+  background:rgba(255,255,255,0.9);
+  border-radius:20px;
+  max-width:600px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  opacity:0;
+  transition:opacity 0.5s ease;
+  text-align:left;
+}
+
+#secrets h3{
+  margin-top:0;
+  color:#2563eb;
+}
+
+/* optional pastel glow */
+#secrets.show{
+  opacity:1;
+  
+  #secrets{
+  display:none;
+  padding:30px;
+  margin:30px auto;
+  background:rgba(255,255,255,0.92);
+  border-radius:20px;
+  max-width:700px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  text-align:left;
+
+  font-family:'Segoe UI', sans-serif;
+  font-size:1rem;
+  line-height:1.7;
+  color:#1e293b;
+}
+
+#secrets p{
+  margin:0;
+  white-space:pre-line; 
+}
+
+/* ===== MUSIC PLAYER ===== */
+
+.music-wrapper{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:center;
+}
+
+.music-card{
+  width:90%;
+  max-width:500px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  box-shadow:0 15px 40px rgba(37,99,235,0.15);
+  transition:0.3s;
+}
+
+.music-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(37,99,235,0.25);
+}
+
+.music-title{
+  font-weight:600;
+  margin-bottom:15px;
+  color:#1e3a8a;
+}
+
+.music-controls button{
+  margin:5px;
+  padding:8px 18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+  background:#2563eb;
+  color:white;
+  transition:0.3s;
+}
+
+.music-controls button:hover{
+  background:#1e40af;
+  transform:scale(1.05);
+}
+
 </style>
 </head>
 <body>
 
 <div id="progressBar"></div>
-<div class="clock" id="clock"></div>
+<div class="clock" id="clock">🕒 Tukuna Meher</div>
 
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
 
 <div class="container">
 
-<h1>Student • Observer • Programmer</h1>
-<div class="tagline">Building. Learning. Growing.</div>
+<h1>Student • Observer • Gamer</h1>
+<div class="tagline">Observing. Learning. Growing.</div>
 
 <div class="tabs">
   <button class="tab-btn active" onclick="openTab('home', this)">Home</button>
@@ -237,12 +332,45 @@ footer{
 </div>
 
 <div id="about" class="tab-content">
-  <h2>About Me</h2>
+  <h2><b>About Me<b/></h2>
   <p>
-  Just a boy dreaming to be a doctor in future and does coding when free.  
-  A topper type student with many skills — and one great thing,  
-  my observing skill is extraordinary.
+  <b>Not every story ends with closure. Some end with silence.<br><br>
+I’ve learned that growing up isn’t about getting older — it’s about learning how to sit with feelings you can’t explain to anyone. It’s about smiling infront and thinking when alone. It’s about understanding that not everyone who enters your life is meant to stay, no matter how real it once felt.<br><br>
+There was a time when I believed clarity would always come with honesty. But sometimes, clarity comes alone — without answers, without reassurance, without the comfort you hoped for. And in those moments, you either lose yourself chasing explanations, or you quietly choose your own peace. I chose peace.<br><br>
+Walking away doesn’t always mean you stopped caring. Sometimes it means you cared too much to let confusion slowly destroy your focus. Sometimes it means you respect your future more than your present emotions. And that decision — silent, unnoticed, uncelebrated — changes you.<br><br>
+I’ve become someone who observes more than reacting. I notice the small shifts in tone, the distance in energy, the difference between words and actions. I don’t always speak about it, but I understand. Silence has taught me more than conversations ever did.<br><br>
+I am just a student, At Odisha Adarsha Vidyalaya, Badi, I am just another student preparing for exams, building goals, dreaming a future. But inside, there is more — discipline fighting distraction, ambition fighting attachment, logic fighting emotion. Not every battle is visible. Some are fought quietly at our worst when the world assumes you’re at your best.<br><br>
+I don’t believe in dramatic endings anymore. I believe in controlled exits. I believe in stepping back when something feels uncertain. I believe that protecting your mental peace is not weakness — it is strength disguised as silence.<br><br>
+I am learning that not every connection is meant to last, and not every feeling deserves to be chased. Some experiences are meant to shape you, not stay with you. And some lessons hurt — but they build maturity that comfort never could.<br><br>
+My name is Tukuna Meher.<br>
+Still learning. Still experiencing. Still becoming.<br><br>
+I might be quieter than before — but stronger than ever.<b/>
   </p>
+  
+  <br><br>
+
+<div class="music-wrapper">
+
+  <div class="music-card">
+    <p class="music-title">🎵 Write This Down</p>
+    <audio id="Write This Down - 2Pac - Pop Smoke - ft. Biggie - DMX - Eazy E - Ice Cube - Dr Dre - NWA, Nipsey - Snoop Dogg" src="Write This Down - 2Pac - Pop Smoke - ft. Biggie - DMX - Eazy E - Ice Cube - Dr Dre - NWA, Nipsey - Snoop Dogg.mp3"></audio>
+    <div class="music-controls">
+      <button onclick="playSong('Write This Down - 2Pac - Pop Smoke - ft. Biggie - DMX - Eazy E - Ice Cube - Dr Dre - NWA, Nipsey - Snoop Dogg')">▶ Play</button>
+      <button onclick="stopSong('Write This Down - 2Pac - Pop Smoke - ft. Biggie - DMX - Eazy E - Ice Cube - Dr Dre - NWA, Nipsey - Snoop Dogg')">⏹ Stop</button>
+    </div>
+  </div>
+
+  <div class="music-card">
+    <p class="music-title">🎵 Bol Kaffara Kya Hoga</p>
+    <audio id="Bol Kaffara Kya Hoga2" src="Bol Kaffara Kya Hoga.mp3"></audio>
+    <div class="music-controls">
+      <button onclick="playSong('Bol Kaffara Kya Hoga')">▶ Play</button>
+      <button onclick="stopSong('Bol Kaffara Kya Hoga')">⏹ Stop</button>
+    </div>
+  </div>
+
+</div>
+  
 </div>
 
 <div id="projects" class="tab-content">
@@ -260,11 +388,36 @@ footer{
   </p>
 </div>
 
+<!-- HIDDEN SECRETS -->
+<div id="secrets">
+  <h3>🤫 My Secrets</h3>
+  <p>25 February 2026.<br>
+I didn’t end it out of angered-confusion.<br>
+I ended it out of clarity.<br>
+<br>
+The moment doubt replaced certainty,<br>
+I chose peace over attachment.<br>
+Not because I stopped caring —<br>
+but because I value myself enough<br>
+to not stay where trust feels uncertain.<br>
+<br>
+Beginnings can be either loud or silent.<br>
+Mine didn't even began.<br>
+Some endings are loud.<br>
+Mine was silent… and intentional.<br>
+<br>
+<b>Wanna Know The Meaning/Backstory? <br>
+Find Our Yourself...<b/>
+  </p>
+</div>
+
 <footer>
   © 2026 | Designed by Tukuna Meher
 </footer>
 
 </div>
+
+
 
 <script>
 
@@ -324,7 +477,6 @@ for(let i=0;i<20;i++){
 
 /* ===== DEVTOOLS DETECTION ===== */
 let devtoolsOpen = false;
-
 function detectDevTools() {
   const threshold = 160;
   const widthDiff = window.outerWidth - window.innerWidth > threshold;
@@ -341,8 +493,54 @@ function detectDevTools() {
     );
   }
 }
-
 setInterval(detectDevTools, 1000);
+
+/* ===== HIDDEN SECRETS (CLICK CLOCK 3 TIMES + PASSWORD) ===== */
+let clickCount = 0;
+const requiredClicks = 3;
+const clock = document.getElementById('clock');
+const secrets = document.getElementById('secrets');
+let secretsVisible = false;
+
+clock.addEventListener('click', () => {
+  clickCount++;
+  if(clickCount === requiredClicks){
+    clickCount = 0; // reset counter
+    if(!secretsVisible){
+      const password = prompt("Enter the secret password:");
+      if(password === "ItsNothing"){ // <-- change this password when needd to make it as pass in site
+        secrets.style.display = "block";
+        setTimeout(()=>secrets.style.opacity = "1", 10);
+        secretsVisible = true;
+      }
+    } else {
+      secrets.style.opacity = "0";
+      setTimeout(()=>secrets.style.display = "none", 500);
+      secretsVisible = false;
+    }
+  }
+  
+  
+  
+});
+
+function playSong(id){
+  stopAllSongs();
+  document.getElementById(id).play();
+}
+
+function stopSong(id){
+  const song = document.getElementById(id);
+  song.pause();
+  song.currentTime = 0;
+}
+
+function stopAllSongs(){
+  document.querySelectorAll("audio").forEach(song=>{
+    song.pause();
+    song.currentTime = 0;
+  });
+}
 
 </script>
 
