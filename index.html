@@ -328,7 +328,9 @@ It’s about understanding that not everyone who enters your life is meant to st
 <div class="music-wrapper">
 <div class="music-card">
 <p class="music-title">🎵 Timeless</p>
-<audio id="timeless" src="Timeless.mp3"></audio>
+<audio id="timeless">
+  <source src="Timeless.mp3" type="audio/mpeg">
+</audio>
 <div class="music-controls">
 <button onclick="playSong('timeless')">▶ Play</button>
 <button onclick="stopSong('timeless')">⏹ Stop</button>
@@ -482,3 +484,4 @@ document.getElementById("clock").addEventListener("click", function(){
 
 </body>
 </html>
+
